@@ -8,7 +8,7 @@
 👨‍💻 Configuração
 - Clonar o repositório
 - Altere os (offsets) aimbot para (offsets, mais atual)
-- Compilar na versão Realase | x86
+- Compilar na versão Release | x86
 - Executar quando o CS:GO estiver aberto
 - Apreciar
 ----------------------------------------------------------------------------------------------
