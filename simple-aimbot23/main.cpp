@@ -7,10 +7,10 @@ namespace offset
 {
 	// client
 	constexpr ::std::ptrdiff_t dwLocalPlayer = 0xDEA964;
-	constexpr ::std::ptrdiff_t dwEntityList = 0x4DFFF14;
+	constexpr ::std::ptrdiff_t dwEntityList = 0x4DFFEF4;
 
 	// engine
-	constexpr ::std::ptrdiff_t dwClientState = 0x59F194;
+	constexpr ::std::ptrdiff_t dwClientState = 0x59F19C;
 	constexpr ::std::ptrdiff_t dwClientState_ViewAngles = 0x4D90;
 	constexpr ::std::ptrdiff_t dwClientState_GetLocalPlayer = 0x180;
 
@@ -38,7 +38,7 @@ int main()
 	// inicializar memory class
 	const auto memory = Memory{ "csgo.exe" };
 
-	// endereços de módulo
+	// endereÃ§os de mÃ³dulo
 	const auto client = memory.GetModuleAddress("client.dll");
 	const auto engine = memory.GetModuleAddress("engine.dll");
 
@@ -88,8 +88,8 @@ int main()
 			{
 				const auto boneMatrix = memory.Read<std::uintptr_t>(player + offset::m_dwBoneMatrix);
 
-				// posição da cabeça do jogador no espaço 3d
-				// 8 é o índice do osso da cabeça :)
+				// posiÃ§Ã£o da cabeÃ§a do jogador no espaÃ§o 3d
+				// 8 Ã© o Ã­ndice do osso da cabeÃ§a :)
 				const auto playerHeadPosition = Vector3{
 					memory.Read<float>(boneMatrix + 0x30 * 8 + 0x0C),
 					memory.Read<float>(boneMatrix + 0x30 * 8 + 0x1C),
@@ -112,7 +112,7 @@ int main()
 			}
 		}
 
-		// se tivermos um melhor ângulo, do aimbot
+		// se tivermos um melhor Ã¢ngulo, do aimbot
 		if (!bestAngle.IsZero())
 			memory.Write<Vector3>(clientState + offset::dwClientState_ViewAngles, viewAngles + bestAngle / 3.f); // smoothing
 	}
